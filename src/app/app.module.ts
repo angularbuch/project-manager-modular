@@ -1,6 +1,5 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { BrowserModule, Title } from "@angular/platform-browser";
-import * as io from "socket.io-client";
 import { environment } from "../environments/environment";
 import { AppComponent } from "./app.component";
 import { appRouting, routingComponents } from "./app.routing";
@@ -10,6 +9,7 @@ import { LoginService } from "./services/login-service/login-service";
 import { SharedModule } from "./shared/shared-module";
 import {CacheModule} from './cache/cache.module';
 import {ApplicationConfigService} from './services/application-config/application-config.service';
+import { io } from 'socket.io-client';
 
 
 export function socketIoFactory() {

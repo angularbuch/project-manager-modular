@@ -7,6 +7,7 @@ import {tap} from 'rxjs/operators';
 import {Task} from '../models/model-interfaces';
 import {SharedModule} from '../shared-module';
 import {ApplicationConfigService} from '../../services/application-config/application-config.service';
+import { Socket } from 'socket.io-client';
 
 // const BASE_URL = `http://localhost:3000/api/tasks/`;
 
@@ -17,7 +18,7 @@ const WEB_SOCKET_URL = 'http://localhost:3001';
 })
 export class TaskService {
 
-  socket: SocketIOClient.Socket;
+  socket: Socket;
 
   tasks$: Observable<Task[]>;
 
