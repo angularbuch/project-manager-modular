@@ -12,15 +12,15 @@ export const REMOVE = 'REMOVE';
   providedIn: 'root'
 })
 export class TaskStore {
-  private tasks: Task[] = [];
+  private tasks: Readonly<Task[]> = [];
   items$ = new BehaviorSubject<Task[]>([]);
 
   dispatch(action: any) {
     this.tasks = this._reduce(this.tasks, action);
-    this.items$.next(this.tasks);
+    this.items$.next(this.tasks as Task[]);
   }
 
-  _reduce(tasks: Task[], action: any) {
+  _reduce(tasks: Readonly<Task[]>, action: any) {
     switch (action.type) {
       case LOAD:
         return [...action.data];

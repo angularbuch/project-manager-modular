@@ -11,6 +11,7 @@ export class LoginGuard implements CanActivate, CanLoad {
   }
 
   private checkLogin(redirect: string) {
+    console.log('CHECKING login')
     if (!this.loginService.isLoggedIn()) {
       this.router.navigate(['/login'], {queryParams: {redirect: redirect}});
       return false;
